@@ -1,0 +1,26 @@
+body {
+  padding: 100px;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.card {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 15px 15px;
+}
+
+.day-weather {
+  padding: 10px;
+}
+
+.units {
+  font-size: 16px;
+}
