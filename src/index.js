@@ -22,7 +22,7 @@ if (minutes < 10) {
 }
 
 let timeElement = document.querySelector("h5");
-timeElement.innerHTML = `${day} ${hours}:${minutes}`;
+timeElement.innerHTML = `${day}, ${hours}:${minutes}`;
 
 //  Search Form
 
