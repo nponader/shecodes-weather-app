@@ -15,13 +15,13 @@
       src="https://kit.fontawesome.com/2df227df69.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
     <div class="container">
-      <div class="card navigation" style="width: 40rem">
+      <div class="card-navigation" style="width: 40rem">
         <form class="search-form" id="search-form">
           <div class="row">
             <div class="col-9">
@@ -40,9 +40,9 @@
       </div>
 
       <div class="card weather" style="width: 40rem">
-        <h1 id="city">Bayreuth</h1>
+        <h1 id="cityElement"></h1>
         
-        <h2 id="current-temperature">-5°C </h2> <span class="units"><a href="#" id="celsius">C°</a> | <a href="#" id="fahrenheit">F°</a></span>
+        <h2 id="current-temperature"></h2> <span class="units"><a href="#" id="celsius">C°</a> | <a href="#" id="fahrenheit">F°</a></span>
 
         <h5></h5>
         <div class="row">
@@ -64,31 +64,31 @@
         </div>
         <div class="row">
           <div class="col-2">
-            <div class="border border-light-subtle day-weather">
+            <div class="border border-light-subtle" id="day-weather">
               <h5>2°C</h5>
               <i class="fa-solid fa-cloud"></i>
             </div>
           </div>
           <div class="col-2">
-            <div class="border border-light-subtle day-weather">
+            <div class="border border-light-subtle" id="day-weather">
               <h5>2°C</h5>
               <i class="fa-solid fa-cloud"></i>
             </div>
           </div>
           <div class="col-2">
-            <div class="border border-light-subtle day-weather">
+            <div class="border border-light-subtle" id="day-weather">
               <h5>2°C</h5>
               <i class="fa-solid fa-snowflake"></i>
             </div>
           </div>
           <div class="col-2">
-            <div class="border border-light-subtle day-weather">
+            <div class="border border-light-subtle" id="day-weather">
               <h5>2°C</h5>
               <i class="fa-solid fa-snowflake"></i>
             </div>
           </div>
           <div class="col-2">
-            <div class="border border-light-subtle day-weather">
+            <div class="border border-light-subtle" id="day-weather">
               <h5>2°C</h5>
               <i class="fa-solid fa-sun"></i>
             </div>
