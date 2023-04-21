@@ -43,7 +43,9 @@ function searchCity(event) {
   function getCityTemperature(response) {
     let temperature = Math.round(response.data.main.temp);
     let tempLineElement = document.querySelector("#current-temperature");
-    tempLineElement.innerHTML = `${temperature}°`;
+    tempLineElement.innerHTML = `${temperature}`;
+    //proof
+    console.log(temperature);
   }
 
   axios.get(cityUrl).then(getCityTemperature);

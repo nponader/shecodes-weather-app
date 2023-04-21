@@ -5,6 +5,12 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+
+h2 {
+  display: inline-block;
 }
 
 .container {
@@ -17,6 +23,8 @@ a {
 
 .units {
   font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
 }
 .card-navigation {
   margin: 0 auto;
