@@ -66,6 +66,7 @@ function getPosition(position) {
 navigator.geolocation.getCurrentPosition(getPosition);
 
 function showTemperature(response) {
+  celsiusTemperature = response.data.main.temp;
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
   let tempLineElement = document.querySelector("#current-temperature");
@@ -84,15 +85,21 @@ let locationButton = document.querySelector("#current-location");
 locationButton.addEventListener("click", currentLocTemp);
 
 // Units Switch
-/*
-let celsius = document.querySelector("#celsius");
-let fahrenheit = document.querySelector("#fahrenheit");
-let currentTemperature = document.querySelector("#current-temperature");
-function switchToCelsius() {
-  currentTemperature.innerHTML = "5°C";
+
+let celsiusElement = document.querySelector("#celsiusElement");
+let fahrenheitElement = document.querySelector("#fahrenheitElement");
+let currentTemperatureElement = document.querySelector("#current-temperature");
+
+function switchToCelsius(event) {
+  event.preventDefault();
+  currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-function switchToFahrenheit() {
-  currentTemperature.innerHTML = "41°F";
+function switchToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  currentTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
-celsius.addEventListener("click", switchToCelsius);
-fahrenheit.addEventListener("click", switchToFahrenheit);*/
+celsiusElement.addEventListener("click", switchToCelsius);
+fahrenheitElement.addEventListener("click", switchToFahrenheit);
+
+let celsiusTemperature = null;
