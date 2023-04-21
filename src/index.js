@@ -29,7 +29,7 @@ timeElement.innerHTML = `${day} ${hours}:${minutes}`;
 function searchCity(event) {
   // search engine
   event.preventDefault();
-  let cityElement = document.querySelector("#city");
+  let cityElement = document.querySelector("#cityElement");
   let cityInput = document.querySelector("#city-input");
   cityElement.innerHTML = cityInput.value;
 
@@ -68,7 +68,7 @@ function showTemperature(response) {
   console.log(temperature);
   let tempLineElement = document.querySelector("#current-temperature");
   tempLineElement.innerHTML = `${temperature}°`;
-  let changeCity = document.querySelector("#city");
+  let changeCity = document.querySelector("#cityElement");
   console.log(response.data.name);
   changeCity.innerHTML = response.data.name;
 }
