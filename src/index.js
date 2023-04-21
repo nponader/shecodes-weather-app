@@ -69,7 +69,7 @@ function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
   let tempLineElement = document.querySelector("#current-temperature");
-  tempLineElement.innerHTML = `${temperature}°`;
+  tempLineElement.innerHTML = `${temperature}`;
   let changeCity = document.querySelector("#cityElement");
   console.log(response.data.name);
   changeCity.innerHTML = response.data.name;
