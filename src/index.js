@@ -21,8 +21,8 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 
-let time = document.querySelector("h5");
-time.innerHTML = `${day} ${hours}:${minutes}`;
+let timeElement = document.querySelector("h5");
+timeElement.innerHTML = `${day} ${hours}:${minutes}`;
 
 //  Search Form
 
@@ -42,8 +42,8 @@ function searchCity(event) {
   //get the temperature to the searched city
   function getCityTemperature(response) {
     let temperature = Math.round(response.data.main.temp);
-    let tempLine = document.querySelector("#current-temperature");
-    tempLine.innerHTML = `${temperature}°`;
+    let tempLineElement = document.querySelector("#current-temperature");
+    tempLineElement.innerHTML = `${temperature}°`;
   }
 
   axios.get(cityUrl).then(getCityTemperature);
@@ -66,8 +66,8 @@ navigator.geolocation.getCurrentPosition(getPosition);
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
-  let tempLine = document.querySelector("#current-temperature");
-  tempLine.innerHTML = `${temperature}°`;
+  let tempLineElement = document.querySelector("#current-temperature");
+  tempLineElement.innerHTML = `${temperature}°`;
   let changeCity = document.querySelector("#city");
   console.log(response.data.name);
   changeCity.innerHTML = response.data.name;
