@@ -49,11 +49,34 @@ function searchCity(event) {
   }
 
   axios.get(cityUrl).then(getCityTemperature);
+
+  //get weather description
+  function getWeatherDescription(response) {
+    let weatherDescription = response.data.weather.main;
+    let weatherDescriptionElement = document.querySelector(
+      "#weatherDescriptionElement"
+    );
+    weatherDescriptionElement.innerHTML = `${weatherDescription}`;
+    //proof
+    console.log(weatherDescription);
+  }
+  axios.get(cityUrl).then(getWeatherDescription);
+
+  //get wind speed
+  function getWindSpeed(response) {
+    let windSpeed = Math.round(response.data.wind.speed * 3.6);
+    let windSpeedElement = document.querySelector("#windSpeedElement");
+    windSpeedElement.innerHTML = `Wind speed: ${windSpeed} km/h`;
+    //proof
+    console.log(windSpeed);
+  }
+  axios.get(cityUrl).then(getWindSpeed);
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
+// CURRENT LOCATION
 // use current location button
 
 function getPosition(position) {
@@ -92,10 +115,14 @@ let currentTemperatureElement = document.querySelector("#current-temperature");
 
 function switchToCelsius(event) {
   event.preventDefault();
+  fahrenheitElement.classList.remove("active");
+  celsiusElement.classList.add("active");
   currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 function switchToFahrenheit(event) {
   event.preventDefault();
+  fahrenheitElement.classList.add("active");
+  celsiusElement.classList.remove("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   currentTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
@@ -103,3 +130,5 @@ celsiusElement.addEventListener("click", switchToCelsius);
 fahrenheitElement.addEventListener("click", switchToFahrenheit);
 
 let celsiusTemperature = null;
+
+//4 Day Weather Forecast

@@ -49,6 +49,15 @@ small {
   margin-top: 35px;
 }
 
+#current-temperature .active {
+  color: #000;
+  cursor: default;
+}
+
+#current-temperature .active:hover {
+  text-decoration: none;
+}
+
 #day-weather {
   padding: 10px;
 }
