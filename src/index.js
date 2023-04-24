@@ -52,7 +52,7 @@ function searchCity(event) {
 
   //get weather description
   function getWeatherDescription(response) {
-    let weatherDescription = response.data.weather.main;
+    let weatherDescription = response.data.weather[0].description;
     let weatherDescriptionElement = document.querySelector(
       "#weatherDescriptionElement"
     );
@@ -117,7 +117,7 @@ locationButton.addEventListener(
 
 //local weather description
 function showWeatherDescription(response) {
-  let weatherDescription = response.data.weather.main;
+  let weatherDescription = response.data.weather[0].description;
   let weatherDescriptionElement = document.querySelector(
     "#weatherDescriptionElement"
   );
