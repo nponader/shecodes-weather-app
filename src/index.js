@@ -85,9 +85,12 @@ function getPosition(position) {
   let apiKey = "3499ef150985eccadd080ff408a018df";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showWeatherDescription);
+  axios.get(apiUrl).then(showWindSpeed);
 }
 navigator.geolocation.getCurrentPosition(getPosition);
 
+//local temperature
 function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
   let temperature = Math.round(response.data.main.temp);
@@ -105,7 +108,40 @@ function currentLocTemp(event) {
 }
 
 let locationButton = document.querySelector("#current-location");
-locationButton.addEventListener("click", currentLocTemp);
+locationButton.addEventListener(
+  "click",
+  currentLocTemp,
+  currentLocWeatherDescription,
+  currentLocWindSpeed
+);
+
+//local weather description
+function showWeatherDescription(response) {
+  let weatherDescription = response.data.weather.main;
+  let weatherDescriptionElement = document.querySelector(
+    "#weatherDescriptionElement"
+  );
+  weatherDescriptionElement.innerHTML = `${weatherDescription}`;
+  //proof
+  console.log(weatherDescription);
+}
+function currentLocWeatherDescription(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPosition);
+}
+
+//local wind speed
+function showWindSpeed(response) {
+  let windSpeed = Math.round(response.data.wind.speed * 3.6);
+  let windSpeedElement = document.querySelector("#windSpeedElement");
+  windSpeedElement.innerHTML = `Wind speed: ${windSpeed} km/h`;
+  //proof
+  console.log(windSpeed);
+}
+function currentLocWindSpeed(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPosition);
+}
 
 // Units Switch
 
